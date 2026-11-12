@@ -1,0 +1,150 @@
+// Red flags are BEHAVIOUR, never origin. Tier 1 = obvious, tier 3 = subtle.
+// Inspired by real 2025-2026 chip-smuggling cases (fake baby bumps, lobsters,
+// hair dryers on serial labels, dummy servers, bought identities).
+
+export const RED_FLAGS = Object.freeze([
+  {
+    id: 'baby-bump',
+    tier: 1,
+    text: { ru: 'Просит доставить GPU в накладном животе «беременной»', en: 'Wants the GPUs delivered inside a prosthetic baby bump' },
+    reveal: { ru: 'Внутри «малыша» — 202 процессора. Срок родов: никогда.', en: 'Inside the "baby": 202 processors. Due date: never.' },
+  },
+  {
+    id: 'lobsters',
+    tier: 1,
+    text: { ru: 'Отправляет чипы между живыми лобстерами', en: 'Ships the chips packed between live lobsters' },
+    reveal: { ru: 'Лобстеры были единственными легальными сотрудниками.', en: 'The lobsters were the only legit employees.' },
+  },
+  {
+    id: 'flat-dc',
+    tier: 1,
+    text: { ru: 'Адрес дата-центра: двушка. Вместимость: 40 000 GPU', en: 'Data center address: a 2-room flat. Capacity: 40,000 GPUs' },
+    reveal: { ru: 'Балкон был системой охлаждения.', en: 'The balcony was the cooling system.' },
+  },
+  {
+    id: 'not-there',
+    tier: 1,
+    text: { ru: 'Конечный пункт в форме: «Точно не туда 🙂»', en: 'Final destination on the form: "Definitely Not There 🙂"' },
+    reveal: { ru: 'Было туда.', en: 'It was there.' },
+  },
+  {
+    id: 'gym-bag',
+    tier: 1,
+    text: { ru: 'Платит за 100 000 GPU наличкой. Из спортивной сумки', en: 'Pays for 100,000 GPUs in cash. From a gym bag' },
+    reveal: { ru: '«Сдачи не надо», — сказал он. Сдача была $4 млн.', en: '"Keep the change," they said. The change was $4M.' },
+  },
+  {
+    id: 'no-serials',
+    tier: 1,
+    text: { ru: 'Спрашивает, можно ли GPU «без серийников, для эстетики»', en: 'Asks for GPUs "without serial numbers, for aesthetics"' },
+    reveal: { ru: 'Минимализм тут уголовно наказуем.', en: 'Minimalism is a federal crime here.' },
+  },
+  {
+    id: 'gaming-laptops',
+    tier: 1,
+    text: { ru: 'Примечание: «Подпишите коробки как ИГРОВЫЕ НОУТБУКИ (50 000 шт.)»', en: 'Order note: "Please label boxes as GAMING LAPTOPS (x50,000)"' },
+    reveal: { ru: 'Это очень много Майнкрафта.', en: "That's a lot of Minecraft." },
+  },
+  {
+    id: 'mr-handler',
+    tier: 1,
+    text: { ru: 'Случайно поставил(а) в копию заказа некоего «г-на Куратора»', en: 'Accidentally CC\'d a "Mr. Handler" on the purchase order' },
+    reveal: { ru: 'Г-н Куратор передаёт привет.', en: 'Mr. Handler says hi.' },
+  },
+  {
+    id: 'ocean',
+    tier: 1,
+    text: { ru: 'Просит доставку «в открытый океан, координаты во вложении»', en: 'Requests delivery "to the open ocean, coordinates attached"' },
+    reveal: { ru: 'Береговая охрана нашла накладные. И лодку.', en: 'The coast guard found the manifest. And the boat.' },
+  },
+  {
+    id: 'hair-dryers',
+    tier: 2,
+    text: { ru: 'Купил(а) 340 фенов за квартал за счёт компании', en: 'Expensed 340 hair dryers last quarter' },
+    reveal: { ru: 'Отклеивали серийные номера. Зато серверы блестят.', en: 'For peeling off serial-number stickers. Very shiny servers though.' },
+  },
+  {
+    id: 'cardboard',
+    tier: 2,
+    text: { ru: 'Склад забит серверами. Подозрительно лёгкими', en: 'Warehouse is full of servers. Suspiciously light ones' },
+    reveal: { ru: 'Аудиторы насчитали 3000 картонных муляжей и ни одного вопроса.', en: 'Auditors counted 3,000 cardboard dummies and asked zero questions.' },
+  },
+  {
+    id: 'first-date',
+    tier: 2,
+    text: { ru: 'На первом свидании спросил(а) CEO: «А экспортный контроль — он прям строгий?»', en: 'On a first date, asked the CEO: "So... how strict are export controls, really?"' },
+    reveal: { ru: 'Уровень романтики: министерский.', en: 'Romance level: Ministry.' },
+  },
+  {
+    id: 'jackie',
+    tier: 2,
+    text: { ru: 'Гендира фирмы зовут «Джеки». Финдира тоже. И стажёра', en: 'The buyer\'s CEO is named "Jackie". So is the CFO. And the intern' },
+    reveal: { ru: 'Один Джеки, много паспортов.', en: 'One Jackie, many passports.' },
+  },
+  {
+    id: 'route',
+    tier: 2,
+    text: { ru: 'Маршрут: США → Малайзия → Сингапур → Гонконг → «по ощущениям»', en: 'Route: USA → Malaysia → Singapore → Hong Kong → "vibes"' },
+    reveal: { ru: 'Самый длинный крюк со времён Одиссея.', en: 'Longest detour since Odysseus.' },
+  },
+  {
+    id: 'three-days',
+    tier: 2,
+    text: { ru: 'Компании 3 дня. Уже ваш клиент №1 в регионе', en: 'Company is 3 days old. Already your #1 customer in the region' },
+    reveal: { ru: 'Самый быстрый рост в истории. И самое быстрое закрытие.', en: 'Fastest growth in history. Also fastest shutdown.' },
+  },
+  {
+    id: 'ministry-stuff',
+    tier: 2,
+    text: { ru: 'LinkedIn: «консультант по ЦОД». Прошлое место: «Министерство… всякого»', en: 'LinkedIn: "Data center consultant". Previous job: "Ministry of... Stuff"' },
+    reveal: { ru: 'Секретного всякого.', en: 'Classified stuff.' },
+  },
+  {
+    id: 'two-am',
+    tier: 2,
+    text: { ru: 'Встречи с CEO — только в 2 ночи, «обсудить прогнозы»', en: 'Meets the CEO only at 2 AM "to discuss forecasts"' },
+    reveal: { ru: 'Прогнозы были не про продажи.', en: 'The forecasts were not about sales.' },
+  },
+  {
+    id: 'zero-startup',
+    tier: 2,
+    text: { ru: '«ИИ-стартап»: 0 сотрудников, 0 продуктов, 60 000 GPU', en: '"AI startup": 0 employees, 0 products, 60,000 GPUs' },
+    reveal: { ru: 'Продуктом были GPU.', en: 'The product was the GPUs.' },
+  },
+  {
+    id: 'cloud-vpn',
+    tier: 3,
+    text: { ru: 'Облако в Таиланде. Все клиенты заходят через один VPN «ТочноМестный»', en: 'Cloud in Thailand. Every user logs in via one VPN called "TotallyLocal"' },
+    reveal: { ru: 'Пинг: подозрительно идеальный. Из Запретного Направления.', en: 'Latency: suspiciously perfect. From the Forbidden Destination.' },
+  },
+  {
+    id: 'jacket-gift',
+    tier: 3,
+    text: { ru: 'Подарил(а) CEO кожанку. Размер — идеально. Ни разу не виделись', en: 'Gifted the CEO a leather jacket. Perfect fit. They had never met' },
+    reveal: { ru: 'У них были его мерки. И его календарь.', en: 'They had his measurements. And his calendar.' },
+  },
+  {
+    id: 'mirrored-office',
+    tier: 3,
+    text: { ru: 'Все фото офиса на сайте — одно и то же, отзеркаленное', en: 'Every office photo on their website is the same one, mirrored' },
+    reveal: { ru: 'Офис — фотосток. Деньги — настоящие.', en: 'The office is a stock photo. The money was real.' },
+  },
+  {
+    id: 'weekends',
+    tier: 3,
+    text: { ru: 'Невзначай уточнил(а), работает ли ваш комплаенс по выходным', en: 'Casually asked whether your compliance team works weekends' },
+    reveal: { ru: 'Теперь работает.', en: 'It does now.' },
+  },
+  {
+    id: 'power-bill',
+    tier: 3,
+    text: { ru: 'ЦОД на 20 000 GPU. Счёт за электричество: 3 Вт', en: '20,000-GPU data center. Electricity bill: 3 W' },
+    reveal: { ru: 'Видеокарты работали где-то очень далеко.', en: 'Those GPUs were running somewhere very far away.' },
+  },
+  {
+    id: 'forecast-only',
+    tier: 3,
+    text: { ru: 'Шлёт «прогнозы спроса» каждый месяц, но ни разу не забрал заказ сам', en: 'Sends "demand forecasts" monthly but never picks up an order in person' },
+    reveal: { ru: 'Забирал «друг друга». Через три страны.', en: 'A "friend of a friend" picked it up. Three countries later.' },
+  },
+])
